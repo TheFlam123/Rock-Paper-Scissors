@@ -8,12 +8,7 @@
 </head>
 <body>
     <script>
-    let playerSelection = prompt('Pick your choice!');
-    let computerSelection = (getComputerChoice())   
-    let output = playerSelection + " + " + computerSelection
-    let win = ' You Win!'
-    let lose = ' You Lose!'
-    let draw = ' Its a draw! Go again'
+    
     
     function getComputerChoice() {
         let randomChoices = ['Rock', 'Paper', 'Scissors'];
@@ -22,24 +17,34 @@
     }
 
     function playRound(playerSelection, computerSelection) {
-        if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+        if (playerSelection == 'rock' && computerSelection == 'Paper') {
             return output + lose
-        } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+        } else if (playerSelection == 'paper' && computerSelection == 'Rock') {
            return  output + win
-        } else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+        } else if (playerSelection == 'scissors' && computerSelection == 'Rock') {
             return output + lose
-        } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+        } else if (playerSelection == 'rock' && computerSelection == 'Scissors') {
             return output + win
-        } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') { 
+        } else if (playerSelection == 'scissors' && computerSelection == 'Paper') { 
             return output + win
-        } else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+        } else if (playerSelection == 'paper' && computerSelection == 'Scissors') {
             return output + lose
-        } else if (playerSelection = computerSelection) {
+        } else if (playerSelection ==  computerSelection) {
             return output + draw
         }
     }
+    let playerSelection = prompt('Pick your choice!').toLowerCase();
+    let computerSelection = (getComputerChoice()).toLowerCase();   
+    let output = playerSelection + " + " + computerSelection
+    let win = ' You Win!'
+    let lose = ' You Lose!'
+    let draw = ' Its a draw! Go again'
 
-     console.log(playRound(playerSelection, computerSelection));
+    function game() {
+        return playRound(playerSelection, computerSelection)
+    }
+
+     console.log(game());
 
     </script>
 </body>
