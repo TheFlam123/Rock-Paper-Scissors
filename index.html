@@ -10,7 +10,10 @@
     <script>
     let playerSelection = prompt('Pick your choice!');
     let computerSelection = (getComputerChoice())   
-        
+    let output = playerSelection + " + " + computerSelection
+    let win = 'You Win!'
+    let lose = 'You Lose!'
+    
     function getComputerChoice() {
         let randomChoices = ['Rock', 'Paper', 'Scissors'];
         let choice = randomChoices[Math.floor(Math.random() * randomChoices.length)];
@@ -18,9 +21,11 @@
     }
 
     function playRound(playerSelection, computerSelection) {
-        let output = playerSelection + " + " + computerSelection
-        return "This is your output! " + output
-        
+        if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+            return output + " " + lose
+        } else {
+            return playerSelection + " + " + computerSelection + " Go Again!"
+        }
     }
 
      console.log(playRound(playerSelection, computerSelection));
