@@ -8,10 +8,9 @@
 </head>
 <body>
     <script>
-
     let playerSelection = prompt('Pick your choice!').toLowerCase();
-    let computerSelection = (getComputerChoice()).toLowerCase();   
-    let output = playerSelection + " vs " + computerSelection
+    let computerSelection = (getComputerChoice()).toLowerCase(); 
+    let output = playerSelection + " vs " + computerSelection  
     let win = ' You Win!'
     let lose = ' You Lose!'
     let draw = ' Its a draw! Go again'
@@ -44,10 +43,11 @@
     }
 
     function game() {
-        return playRound(playerSelection, computerSelection);
-        return playRound(playerSelection, computerSelection);
+        playRound(playerSelection, computerSelection)
+        return playRound(playerSelection, computerSelection)
     }
 
+    
      console.log(game());
 
     </script>
