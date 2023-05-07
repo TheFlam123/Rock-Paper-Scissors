@@ -8,7 +8,14 @@
 </head>
 <body>
     <script>
-    
+
+    let playerSelection = prompt('Pick your choice!').toLowerCase();
+    let computerSelection = (getComputerChoice()).toLowerCase();   
+    let output = playerSelection + " vs " + computerSelection
+    let win = ' You Win!'
+    let lose = ' You Lose!'
+    let draw = ' Its a draw! Go again'
+    let properChoice = 'Pick a proper Choice!'
     
     function getComputerChoice() {
         let randomChoices = ['Rock', 'Paper', 'Scissors'];
@@ -17,31 +24,28 @@
     }
 
     function playRound(playerSelection, computerSelection) {
-        if (playerSelection == 'rock' && computerSelection == 'Paper') {
+        if (playerSelection == 'rock' && computerSelection == 'paper') {
             return output + lose
-        } else if (playerSelection == 'paper' && computerSelection == 'Rock') {
+        } else if (playerSelection == 'paper' && computerSelection == 'rock') {
            return  output + win
-        } else if (playerSelection == 'scissors' && computerSelection == 'Rock') {
+        } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
             return output + lose
-        } else if (playerSelection == 'rock' && computerSelection == 'Scissors') {
+        } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
             return output + win
-        } else if (playerSelection == 'scissors' && computerSelection == 'Paper') { 
+        } else if (playerSelection == 'scissors' && computerSelection == 'paper') { 
             return output + win
-        } else if (playerSelection == 'paper' && computerSelection == 'Scissors') {
-            return output + lose
-        } else if (playerSelection ==  computerSelection) {
-            return output + draw
+        } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            return output + lose 
+        } else if(playerSelection == computerSelection) {
+            return output + draw 
+        } else {
+            return properChoice
         }
     }
-    let playerSelection = prompt('Pick your choice!').toLowerCase();
-    let computerSelection = (getComputerChoice()).toLowerCase();   
-    let output = playerSelection + " + " + computerSelection
-    let win = ' You Win!'
-    let lose = ' You Lose!'
-    let draw = ' Its a draw! Go again'
 
     function game() {
-        return playRound(playerSelection, computerSelection)
+        return playRound(playerSelection, computerSelection);
+        return playRound(playerSelection, computerSelection);
     }
 
      console.log(game());
