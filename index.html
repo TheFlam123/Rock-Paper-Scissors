@@ -11,10 +11,12 @@
     let playerSelection = prompt('Pick your choice!').toLowerCase();
     let computerSelection = (getComputerChoice()).toLowerCase(); 
     let output = playerSelection + " vs " + computerSelection  
-    let win = ' You Win!'
-    let lose = ' You Lose!'
-    let draw = ' Its a draw! Go again'
+    let win = output + ' You Win!'
+    let lose = output + ' You Lose!'
+    let draw = output + ' Its a draw! Go again'
     let properChoice = 'Pick a proper Choice!'
+    let userScore = 0;
+    let computerScore = 0;
     
     function getComputerChoice() {
         let randomChoices = ['Rock', 'Paper', 'Scissors'];
@@ -24,31 +26,34 @@
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection == 'rock' && computerSelection == 'paper') {
-            return output + lose
+            return lose
         } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-           return  output + win
+           return  win
         } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-            return output + lose
+            return lose
         } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-            return output + win
+            return win
         } else if (playerSelection == 'scissors' && computerSelection == 'paper') { 
-            return output + win
+            return win
         } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-            return output + lose 
+            return lose
         } else if(playerSelection == computerSelection) {
-            return output + draw 
+            return draw
         } else {
-            return properChoice
+            return properChoice + '\n' + 'hey'
         }
     }
 
     function game() {
         playRound(playerSelection, computerSelection)
-        return playRound(playerSelection, computerSelection)
+        if(playRound(playerSelection, computerSelection) == win) {
+            return console.log(win + '\n' + userScore)
+        }
+        console.log(playRound(playerSelection, computerSelection))
     }
 
-    
-     console.log(game());
+    console.log(game())
+     
 
     </script>
 </body>
