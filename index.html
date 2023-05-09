@@ -26,30 +26,45 @@
 
     function playRound(playerSelection, computerSelection) {
         if (playerSelection == 'rock' && computerSelection == 'paper') {
-            return lose
-        } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-           return  win
-        } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-            return lose
-        } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-            return win
-        } else if (playerSelection == 'scissors' && computerSelection == 'paper') { 
-            return win
-        } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-            return lose
-        } else if(playerSelection == computerSelection) {
-            return draw
+            computerScore++;
+            return lose + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
+        } if (playerSelection == 'paper' && computerSelection == 'rock') {
+            userScore++;
+           return  win + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
+        } if (playerSelection == 'scissors' && computerSelection == 'rock') {
+            computerScore++;
+            return lose + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
+        } if (playerSelection == 'rock' && computerSelection == 'scissors') {
+            userScore++;
+            return win + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
+        } if (playerSelection == 'scissors' && computerSelection == 'paper') {
+            userScore++;
+            return win + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
+        } if (playerSelection == 'paper' && computerSelection == 'scissors') {
+            computerScore++;
+            return lose + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
+        } if(playerSelection == computerSelection) {
+            return draw + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
         } else {
-            return properChoice + '\n' + 'hey'
+            return properChoice + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
+        }
+    }
+
+    function endGame() {
+        if (userScore == 5) {
+            console.log('Game Over! You Win!')
+        } else if (computerScore == 5) {
+            console.log('Game Over! You Lose!')
         }
     }
 
     function game() {
-        playRound(playerSelection, computerSelection)
-        if(playRound(playerSelection, computerSelection) == win) {
-            return console.log(win + '\n' + userScore)
+        console.log(playRound(playerSelection, computerSelection));
+        if (userScore < 5 && computerScore < 5) {
+            game();
+        } else {
+            endGame();
         }
-        console.log(playRound(playerSelection, computerSelection))
     }
 
     console.log(game())
