@@ -50,20 +50,16 @@
         }
     }
 
-    function endGame() {
-        if (userScore == 5) {
-            console.log('Game Over! You Win!')
-        } else if (computerScore == 5) {
-            console.log('Game Over! You Lose!')
-        }
-    }
-
     function game() {
         console.log(playRound(playerSelection, computerSelection));
         if (userScore < 5 && computerScore < 5) {
             game();
-        } else {
-            endGame();
+        } else if (userScore == 5) {
+            console.log('Game Over! You Win!')
+        } else if (computerScore == 5) {
+            console.log('Game Over! You Lose!')
+        } else if (userScore == computerScore) {
+            console.lo(draw)
         }
     }
 
