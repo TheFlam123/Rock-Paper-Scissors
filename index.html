@@ -8,13 +8,14 @@
 </head>
 <body>
     <script>
-    let playerSelection = prompt('Pick your choice!').toLowerCase();
+
+        // SO WHAT I NEED TO DO IS UPDATE PLAYROUND AFTER EACH ROUND AND ADD A SCORE. 
+        //THEN MOVE ONTO THE NEXT ROUND AND DO THIS 5 TIMES.
+        //CALL PLAYROUND 5 TIMES WHERE IT PLAYS ONLY 1 ROUND EACH TIME. SUPER SIMPLE CONCEPT.
+        // CALL UT THEN UPDATE THE SCORE AND REPROMPT.
     let computerSelection = (getComputerChoice()).toLowerCase(); 
-    let output = playerSelection + " vs " + computerSelection  
-    let win = output + ' You Win!'
-    let lose = output + ' You Lose!'
-    let draw = output + ' Its a draw! Go again'
-    let properChoice = 'Pick a proper Choice!'
+     
+    
     let userScore = 0;
     let computerScore = 0;
     
@@ -24,7 +25,14 @@
         return choice
     }
 
-    function playRound(playerSelection, computerSelection) {
+    function playRound(one, computerSelection) {
+        let one = playerSelection
+        let playerSelection = prompt('Pick your choice!').toLowerCase();
+        let output = playerSelection + " vs " + computerSelection 
+        let win = output + ' You Win!'
+        let lose = output + ' You Lose!'
+        let draw = output + ' Its a draw! Go again'
+        let properChoice = 'Pick a proper Choice!'
         if (playerSelection == 'rock' && computerSelection == 'paper') {
             computerScore++;
             return lose + '\n' + 'Your Score: ' + userScore + '\n' + 'Computer Score: ' + computerScore;
@@ -51,6 +59,16 @@
     }
 
     function game() {
+        console.log(playRound(one, computerSelection));
+        console.log(playRound(one, computerSelection));
+        console.log(playRound(one, computerSelection));
+        console.log(playRound(one, computerSelection));
+        console.log(playRound(one, computerSelection));
+
+    }
+
+    /*
+    function game() {
         console.log(playRound(playerSelection, computerSelection));
         if (userScore < 5 && computerScore < 5) {
             game();
@@ -59,10 +77,10 @@
         } else if (computerScore == 5) {
             console.log('Game Over! You Lose!')
         } else if (userScore == computerScore) {
-            console.lo(draw)
+            console.log(draw)
         }
     }
-
+    */
     console.log(game())
      
 
