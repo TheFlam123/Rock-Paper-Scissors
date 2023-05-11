@@ -24,10 +24,11 @@
         let choice = randomChoices[Math.floor(Math.random() * randomChoices.length)];
         return choice
     }
-
+    let playerSelection = prompt('Pick your choice!').toLowerCase();
+    let one = playerSelection
     function playRound(one, computerSelection) {
-        let one = playerSelection
-        let playerSelection = prompt('Pick your choice!').toLowerCase();
+        
+        
         let output = playerSelection + " vs " + computerSelection 
         let win = output + ' You Win!'
         let lose = output + ' You Lose!'
@@ -59,6 +60,7 @@
     }
 
     function game() {
+        console.log(playRound(one, computerSelection));
         console.log(playRound(one, computerSelection));
         console.log(playRound(one, computerSelection));
         console.log(playRound(one, computerSelection));
